@@ -1,36 +1,45 @@
 package com.upn.catatlari.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.upn.catatlari.data.RunDatabase
+import com.upn.catatlari.data.RunRepository
 import com.upn.catatlari.model.Run
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class RunViewModel : ViewModel() {
+class RunViewModel(application: Application) : AndroidViewModel(application) {
 
-    val runList = listOf(
-        Run(runDate = "22 Mei 2026", runDistance = 1, runDuration = 3),
-        Run(runDate = "23 Mei 2026", runDistance = 1, runDuration = 3),
-        Run(runDate = "24 Mei 2026", runDistance = 1, runDuration = 3)
-    )
+    private val repository: RunRepository
 
-    private val runListLiveData = MutableLiveData(runList) // variabel yang berfungsi mengatur perubahan data
-    var runHistory : LiveData<List<Run>> = runListLiveData // variabel yang dipakai untuk dipanggil class lain
+    val runHistory: LiveData<List<Run>>
+
+    init {
+        val runDao = RunDatabase.getDatabase(application).runDao()
+        repository = RunRepository(runDao)
+        runHistory = repository.allRuns
+    }
 
     // CREATE
     fun addRun(run: Run) {
-//        if (runListLiveData.value == null) {
-//
-//        }
-
-        val currentList = runListLiveData.value.orEmpty().toMutableList()
-        currentList.add(run)
-        runListLiveData.value = currentList
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.insertRun(run)
+        }
     }
 
-    // READ
-
     // UPDATE
+    fun updateRun(run: Run) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateRun(run)
+        }
+    }
 
     // DELETE
-
+    fun deleteRun(run: Run) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteRun(run)
+        }
+    }
 }
