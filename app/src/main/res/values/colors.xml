@@ -2,5 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="biru">#0000FF</color>
+
+    <color name="biru">#2563EB</color>
+    <color name="biru_tua">#1D4ED8</color>
+    <color name="biru_muda">#DBEAFE</color>
+
+    <color name="background_soft">#EEF6FF</color>
+    <color name="text_dark">#0F172A</color>
+    <color name="text_gray">#64748B</color>
 </resources>
