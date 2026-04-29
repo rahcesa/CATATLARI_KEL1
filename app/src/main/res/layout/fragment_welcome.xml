@@ -1,31 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#EEF6FF"
+    android:padding="22dp"
     tools:context=".view.WelcomeFragment">
+
+    <!-- CENTER CONTENT -->
+    <LinearLayout
+        android:id="@+id/center_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/txt_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selamat Datang di CatatLari"
+            android:textColor="#0F172A"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/txt_tagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Catat setiap langkah, tingkatkan setiap hari."
+            android:textColor="#64748B"
+            android:textSize="15sp"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <!-- BUTTONS -->
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#2563EB"
+        android:text="Masuk"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="24dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_signup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btn_signup"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_height="58dp"
+        android:backgroundTint="#FFFFFF"
         android:text="Daftar"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/btn_login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="#2563EB"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

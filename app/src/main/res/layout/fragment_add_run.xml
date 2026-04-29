@@ -1,70 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="20dp"
+    android:background="#EEF6FF"
+    android:padding="22dp"
     tools:context=".view.AddRunFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/txt_title"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Let\'s Share"
+        android:text="Catat Lari"
+        android:textColor="#0F172A"
+        android:textSize="34sp"
         android:textStyle="bold"
-        android:textSize="36sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_title2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="your journey!"
-        android:textSize="28sp"
-        app:layout_constraintTop_toBottomOf="@id/txt_title"
+        android:layout_marginTop="6dp"
+        android:text="Masukkan progres larimu hari ini"
+        android:textColor="#64748B"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/txt_title"
+        app:layout_constraintStart_toStartOf="@id/txt_title"
+        app:layout_constraintTop_toBottomOf="@id/txt_title" />
+
+    <LinearLayout
+        android:id="@+id/form_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/txt_title"/>
+        app:layout_constraintTop_toBottomOf="@id/txt_title2">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/et_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Enter date"
-        app:layout_constraintTop_toBottomOf="@id/txt_title2"
-        app:layout_constraintStart_toStartOf="@id/txt_title2"
-        app:layout_constraintEnd_toEndOf="@id/txt_title2"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Lari"
+            android:textColor="#334155"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/et_run_distance"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Masukkan jarak lari Anda"
-        app:layout_constraintTop_toBottomOf="@id/et_date"
-        app:layout_constraintStart_toStartOf="@id/et_date"
-        app:layout_constraintEnd_toEndOf="@id/et_date"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_date"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_bubble"
+            android:hint="Contoh: 29/04/2026"
+            android:inputType="date"
+            android:maxLength="10"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:textColor="#0F172A"
+            android:textColorHint="#94A3B8"
+            android:textSize="15sp" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/et_run_duration"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Masukkan durasi Anda"
-        app:layout_constraintTop_toBottomOf="@id/et_run_distance"
-        app:layout_constraintStart_toStartOf="@id/et_date"
-        app:layout_constraintEnd_toEndOf="@id/et_date"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Jarak Lari"
+            android:textColor="#334155"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_bubble"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="18dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_run_distance"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Masukkan jarak"
+                android:inputType="number"
+                android:paddingStart="18dp"
+                android:paddingEnd="8dp"
+                android:textColor="#0F172A"
+                android:textColorHint="#94A3B8"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="meter"
+                android:textColor="#64748B"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Durasi Lari"
+            android:textColor="#334155"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_bubble"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="18dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_run_duration"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Masukkan durasi"
+                android:inputType="number"
+                android:paddingStart="18dp"
+                android:paddingEnd="8dp"
+                android:textColor="#0F172A"
+                android:textColorHint="#94A3B8"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="menit"
+                android:textColor="#64748B"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_save_run"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Simpan"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="58dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#2563EB"
+        android:text="Simpan Catatan"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/form_container" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
